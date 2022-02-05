@@ -13,7 +13,6 @@ django-filter
 django-floppyforms
 django-guardian
 django-haystack
-django-inline-actions
 django-sitetree
 django-redis
 django-rest-passwordreset

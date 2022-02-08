@@ -53,14 +53,28 @@ INSTALLED_APPS = [
     'corsheaders',
     'axes',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.microsoft',
     'admin_interface',
     'colorfield',
 
     'siteLogs',
 ]
 #############################################################
-SITE_ID = 1
+SOCIALACCOUNT_PROVIDERS = {
+    'microsoft': {
+        'tenant': 'organizations',
+        # 'scope': ['email', 'openid', 'profile', 'User.Read'],
+        'SCOPE': [
+            'User.ReadBasic.All',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    }
+}
+#############################################################
+SITE_ID = 3
 REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'USER_DETAILS_SERIALIZER': 'APIs.serializers.CustomUserSerializer',
